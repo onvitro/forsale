@@ -4,283 +4,217 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dominio en Venta</title>
-  <meta name="description" content="Este dominio está disponible para la venta. Consultas por email." />
+
   <style>
     :root {
-      --bg: #0b0d10;
-      --bg-soft: #11151b;
-      --card: rgba(255, 255, 255, 0.06);
-      --border: rgba(255, 255, 255, 0.12);
-      --text: #f5f7fa;
-      --muted: #a8b0bb;
+      --bg: #0a0c0f;
+      --card: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.08);
+      --text: #f1f5f9;
+      --muted: #9aa4af;
       --accent: #d4af37;
-      --accent-soft: rgba(212, 175, 55, 0.12);
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-      --radius: 24px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(212, 175, 55, 0.08), transparent 30%),
-        radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent 25%),
-        linear-gradient(180deg, #0a0c0f 0%, #0f1318 100%);
-      color: var(--text);
-    }
+    * { box-sizing: border-box; }
 
     body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(212,175,55,0.08), transparent 40%),
+        linear-gradient(180deg,#0a0c0f,#0f1318);
+      color: var(--text);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 32px 18px;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 980px;
+      min-height: 100vh;
+      padding: 20px;
     }
 
     .card {
-      position: relative;
-      overflow: hidden;
+      width: 100%;
+      max-width: 900px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      padding: 56px 42px;
+      border-radius: 20px;
+      padding: 50px 40px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      animation: fadeIn 0.8s ease;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, rgba(212, 175, 55, 0.06), transparent 35%),
-        linear-gradient(315deg, rgba(255, 255, 255, 0.03), transparent 40%);
-      pointer-events: none;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
+      display: inline-block;
+      background: rgba(212,175,55,0.12);
+      border: 1px solid rgba(212,175,55,0.3);
+      padding: 8px 14px;
       border-radius: 999px;
-      background: var(--accent-soft);
-      border: 1px solid rgba(212, 175, 55, 0.22);
-      color: #f4df9a;
-      font-size: 0.92rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      margin-bottom: 28px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 16px rgba(212, 175, 55, 0.7);
-      flex: 0 0 auto;
+      font-size: 13px;
+      margin-bottom: 20px;
+      color: #f7d774;
     }
 
     h1 {
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      line-height: 0.95;
-      margin: 0 0 18px;
-      letter-spacing: -0.04em;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin: 0 0 10px;
       font-weight: 800;
+      letter-spacing: -0.04em;
     }
 
     .domain {
-      display: inline-block;
       color: var(--accent);
-      text-shadow: 0 0 24px rgba(212, 175, 55, 0.12);
+      display: block;
       word-break: break-word;
     }
 
     .subtitle {
-      max-width: 720px;
-      font-size: clamp(1rem, 2vw, 1.18rem);
-      line-height: 1.75;
       color: var(--muted);
-      margin: 0 0 34px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      max-width: 600px;
     }
 
-    .cta-row {
+    .actions {
       display: flex;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 34px;
+      margin-bottom: 30px;
     }
 
     .btn {
-      appearance: none;
-      border: none;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 54px;
-      padding: 0 22px;
-      border-radius: 16px;
-      font-size: 1rem;
-      font-weight: 700;
-      transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.2s;
+      display: inline-block;
     }
 
     .btn-primary {
-      background: linear-gradient(180deg, #e0bc49 0%, #c79d24 100%);
-      color: #151515;
-      box-shadow: 0 14px 30px rgba(212, 175, 55, 0.22);
+      background: linear-gradient(#e0bc49,#c79d24);
+      color: #000;
+      box-shadow: 0 10px 25px rgba(212,175,55,0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
       color: var(--text);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.03);
     }
 
-    .info-grid {
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.06);
+    }
+
+    .info {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 10px;
+      grid-template-columns: repeat(3,1fr);
+      gap: 12px;
     }
 
-    .info-box {
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 20px;
+    .box {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      background: rgba(255,255,255,0.02);
     }
 
-    .info-label {
+    .label {
+      font-size: 13px;
       color: var(--muted);
-      font-size: 0.92rem;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
-    .info-value {
-      font-size: 1.08rem;
-      font-weight: 700;
-      color: var(--text);
-      word-break: break-word;
+    .value {
+      font-weight: 600;
     }
 
-    .footer {
-      margin-top: 26px;
-      color: #7f8792;
-      font-size: 0.92rem;
+    footer {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--muted);
     }
 
-    .footer a {
-      color: #b7bec8;
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 860px) {
+    /* MOBILE */
+    @media(max-width:700px){
       .card {
-        padding: 38px 24px;
+        padding: 30px 20px;
       }
 
-      .info-grid {
+      .info {
         grid-template-columns: 1fr;
       }
 
-      .cta-row {
+      .actions {
         flex-direction: column;
       }
 
       .btn {
         width: 100%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 18px 14px;
-      }
-
-      .card {
-        padding: 30px 18px;
-        border-radius: 20px;
-      }
-
-      .badge {
-        font-size: 0.85rem;
-        padding: 9px 14px;
+        text-align: center;
       }
     }
   </style>
 </head>
+
 <body>
-  <main class="container">
-    <section class="card">
-      <div class="badge">
-        <span class="dot"></span>
-        Dominio disponible
+
+  <div class="card">
+
+    <div class="badge">Dominio disponible</div>
+
+    <h1>
+      <span class="domain">www.ideasproyectadas.com.ar</span>
+      en venta
+    </h1>
+
+    <div class="subtitle">
+      Este dominio premium se encuentra disponible para adquisición inmediata.
+      Ideal para proyectos digitales, marca o inversión.
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="mailto:onvitroconsole@gmail.com?subject=Consulta dominio">
+        Contactar
+      </a>
+
+      <a class="btn btn-secondary" href="mailto:onvitroconsole@gmail.com">
+        onvitroconsole@gmail.com
+      </a>
+    </div>
+
+    <div class="info">
+      <div class="box">
+        <div class="label">Estado</div>
+        <div class="value">Disponible</div>
       </div>
 
-      <h1>
-        <span class="domain">www.ideasproyectadas.com.ar</span><br />
-        está en venta
-      </h1>
-
-      <p class="subtitle">
-        Este dominio se encuentra disponible para adquisición.
-        Si estás interesado en recibir más información o realizar una oferta,
-        podés comunicarte directamente por correo electrónico.
-      </p>
-
-      <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:onvitroconsole@gmail.com?subject=Consulta%20por%20dominio">
-          Contactar por email
-        </a>
-        <a class="btn btn-secondary" href="mailto:onvitroconsole@gmail.com.com">
-          tuemail@ejemplo.com
-        </a>
+      <div class="box">
+        <div class="label">Tipo</div>
+        <div class="value">Dominio premium</div>
       </div>
 
-      <div class="info-grid">
-        <div class="info-box">
-          <div class="info-label">Estado</div>
-          <div class="info-value">Disponible para la venta</div>
-        </div>
-
-        <div class="info-box">
-          <div class="info-label">Consulta</div>
-          <div class="info-value">Ofertas y propuestas serias</div>
-        </div>
-
-        <div class="info-box">
-          <div class="info-label">Contacto</div>
-          <div class="info-value">onvitroconsole@gmail.com</div>
-        </div>
+      <div class="box">
+        <div class="label">Contacto</div>
+        <div class="value">onvitroconsole@gmail.com</div>
       </div>
+    </div>
 
-      <div class="footer">
-        Consultas exclusivamente por correo electrónico.
-      </div>
-    </section>
-  </main>
+    <footer>
+      Consultas exclusivamente por email.
+    </footer>
+
+  </div>
+
 </body>
 </html>
